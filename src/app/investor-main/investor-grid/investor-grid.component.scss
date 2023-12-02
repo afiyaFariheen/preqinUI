@@ -1,0 +1,28 @@
+
+:host ::ng-deep .p-datatable>.p-datatable-wrapper{
+height: 450px;
+}
+
+.grid{
+  width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-left: 25rem;
+    position: relative;
+    .progressSpinner{
+      z-index: 9;
+      margin: 30px;
+    }
+    .tableGrid{
+      position: absolute;
+      opacity: 0.7;
+      a{
+        color: darkcyan;
+      }
+      a:hover {
+        color: black;
+        text-decoration: underline;
+        }
+    }
+
+}

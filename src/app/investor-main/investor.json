@@ -1,0 +1,15 @@
+ [
+    {
+        "colIndex": "firmID",
+        "columnName": "firm ID"
+    }, {
+        "colIndex": "FirmName",
+        "columnName": "firm Name"
+    }, {
+        "colIndex": "FirmType",
+        "columnName": "Type"
+    }, {
+        "colIndex": "Address",
+        "columnName": "Address"
+    }
+]

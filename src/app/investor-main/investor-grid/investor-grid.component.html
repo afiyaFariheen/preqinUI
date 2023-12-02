@@ -1,0 +1,40 @@
+
+
+
+
+<div class="grid">
+  <div *ngIf="loading" class="progressSpinner">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+  <div class="tableGrid" *ngIf="investorlist.length > 0">
+    <h1>List of Investors</h1>
+    <p-table
+    [value]="investorlist"
+    [paginator]="true"
+    [rows]="200"
+    [showCurrentPageReport]="true"
+    [lazy]="true"
+    [totalRecords]="listPageData.total"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    (onPage)="setMyPagination($event)"
+  >
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:25%">Firm ID</th>
+            <th style="width:25%">Firm Name</th>
+            <th style="width:25%">Firm Type</th>
+            <th style="width:25%">Address</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+          <td><a style="cursor: pointer;" [routerLink]="['/investors/investor']" [queryParams]="{id: product.firmID}">{{product.firmID}}</a></td>
+          <td>{{product.firmName}}</td>
+          <td>{{product.firmType}}</td>
+          <td>{{product.address}}</td>
+        </tr>
+    </ng-template>
+  </p-table>
+  </div>
+
+</div>

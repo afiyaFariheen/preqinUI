@@ -1,0 +1,16 @@
+<div *ngFor = "let investor of investors">
+    <p-accordion [activeIndex]="0">
+        <p-accordionTab [header]="investor.firmName">
+           <div>
+            The selected Firm : {{investor.firmName}} 
+            Region - {{investor.region}}
+            Address - {{investor.address}} + {{investor.city}} + {{ investor.stateCounty}} + {{investor.zipCode}}
+            Year Est{{investor.yearEst}}
+           </div>
+               
+        </p-accordionTab>
+        </p-accordion>
+</div>
+
+
+

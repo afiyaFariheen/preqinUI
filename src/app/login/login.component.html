@@ -1,0 +1,19 @@
+
+
+<div style="height: 600px;">
+  <div class="login">
+    <div class="heading">
+      <h2>Connect to my invester</h2>
+
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input type="text" class="form-control" placeholder="Username or email" [(ngModel)]="username">
+      </div>
+
+    </div>
+    <div>
+      <p-button label="Submit"  (onClick)="connect()" severity="secondary"></p-button>
+    </div>
+
+  </div>
+</div>

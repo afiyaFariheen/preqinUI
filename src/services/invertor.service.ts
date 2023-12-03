@@ -15,4 +15,8 @@ export class investorService {
         return this.http.get<any>(`${environment.preqinBaseUrl}api/investor`,{ params: data });
     }
 
+    getCommitment(path:string){
+        return this.http.get<any>(`${environment.preqinBaseUrl}api/investor/commitment/` + path);
+    }
+
 }

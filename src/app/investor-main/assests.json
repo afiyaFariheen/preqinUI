@@ -1,0 +1,38 @@
+[
+    {
+      "investorId": "dummy data",
+      "investorName": "dummy data",
+      "fundId": "dummy data",
+      "fundName": "dummy data",
+      "fundManagerId": "dummy data",
+      "fundManagerName": "dummy data",
+      "fundCurrency": "dummy data",
+      "fundSizeMn": "dummy data",
+      "committedMn": "dummy data",
+      "vintage": "dummy data",
+      "fundType": "dummy data",
+      "coreIndustries": "dummy data",
+      "industryVerticals": "dummy data",
+      "domicile": "dummy data",
+      "benchmarkLocations": "dummy data",
+      "managerExperience": "dummy data"
+    },
+    {
+        "investorId": "dummy data",
+        "investorName": "dummy data",
+        "fundId": "dummy data",
+        "fundName": "dummy data",
+        "fundManagerId": "dummy data",
+        "fundManagerName": "dummy data",
+        "fundCurrency": "dummy data",
+        "fundSizeMn": "dummy data",
+        "committedMn": "dummy data",
+        "vintage": "dummy data",
+        "fundType": "dummy data",
+        "coreIndustries": "dummy data",
+        "industryVerticals": "dummy data",
+        "domicile": "dummy data",
+        "benchmarkLocations": "dummy data",
+        "managerExperience": "dummy data"
+      }
+  ]

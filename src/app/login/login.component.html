@@ -9,10 +9,13 @@
         <span class="input-group-addon"><i class="fa fa-user"></i></span>
         <input type="text" class="form-control" placeholder="Username or email" [(ngModel)]="username">
       </div>
+      <div style="color: red;" *ngIf="error">
+        Username or email is required.
+      </div>
 
     </div>
-    <div>
-      <p-button label="Submit"  (onClick)="connect()" severity="secondary"></p-button>
+    <div style=" text-align: center;margin-top: 1rem;">
+      <p-button   label="Connect" class="btn" [raised]="true"  (onClick)="connect()" size="large" severity="secondary"></p-button>
     </div>
 
   </div>

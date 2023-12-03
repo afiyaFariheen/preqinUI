@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { investorService } from '../../../services/invertor.service';
 import { first } from 'rxjs';
-//import { IDropdownSettings } from 'ng-multiselect-dropdown';
-
+import * as assestsjson from '../assests.json';
 
 @Component({
   selector: 'app-investor-detail',
@@ -12,8 +11,9 @@ import { first } from 'rxjs';
 })
 export class InvestorDetailComponent {
   firmId: any;
+  commitments: any = (assestsjson as any).default;
   assetClasses = [
-    { name: 'Private Equity', item_text: 'PE' },
+    { item_id: 'Private Equity', item_text: 'PE' },
     { item_id: 'Private Debt', item_text: 'PD' },
     { item_id: 'Real Estate', item_text: 'RE' },
     { item_id: 'Infrastructure', item_text: 'INF' },
@@ -22,7 +22,6 @@ export class InvestorDetailComponent {
   //dropdownSettings: IDropdownSettings = {};
   selectedItems = [];
   investors: any;
-
   
 
   constructor(private route: ActivatedRoute, private investorSerive: investorService) {
@@ -44,9 +43,16 @@ export class InvestorDetailComponent {
 
  
 
-  onItemSelect(item: any) {
-    console.log(item);
+  selectionChange(item: any) {
+item.commitments = this.commitments;
+
+    //api is throwing not found
+    // this.investorSerive.getCommitment(item.selectedAsset + '/' + item.firmID).pipe(first()).subscribe(investor => {
+    //   item.commitment = investor.data
+    // });
+    
   }
+
   onSelectAll(items: any) {
     console.log(items);
   }

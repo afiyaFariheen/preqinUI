@@ -24,11 +24,6 @@ export class AuthenticationService {
     }
 
     login(username: string) {
-        let connectUser = {
-            username:username,
-            apikey:environment.apikey
-        }
-
         const params = new HttpParams({
             fromObject :{
                 username:username,
@@ -45,11 +40,11 @@ export class AuthenticationService {
                 localStorage.setItem(  'access_token', user.access_token);
                 localStorage.setItem(  "refresh_token", user.refresh_token);
 
-                //let testDate = Date.now() + 4 * 3600 * 1000;
-                localStorage.setItem(  "expires_in", user.expires_in);
+                let expiresDate = Date.now() + 4 * user.expires_in * 1000;
+                localStorage.setItem(  "expire_time", expiresDate.toString());
                 // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
-                //this.userSubject.next(user);
+                this.userSubject.next(user);
                 return user;
             }));
     }
@@ -58,6 +53,7 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('user');
         this.userSubject.next(null);
-        this.router.navigate(['/login']);
+        this.router.navigate(['/connect']);
     }
+
 }

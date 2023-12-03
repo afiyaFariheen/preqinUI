@@ -1,32 +1,13 @@
-<header>
-  <h2>My Invester page</h2>
-  <ul>
-    <li><a>About Us</a></li>
-    <li><a>Log In</a></li>
-  </ul>
-</header>
-
-<div style="height: 600px;">
-<router-outlet></router-outlet>
-</div>
-
-<footer>
-  <div class="sec">
-    <!-- <h2>
-      Navbar links
-    </h2>
+<div style="height: 100%;">
+  <header>
+    <h2>My Invester page</h2>
     <ul>
-      <li><a>Home</a></li>
       <li><a>About Us</a></li>
-      <li><a>Log In</a></li>
-    </ul> -->
-  </div>
-  <div class="sec">
-    <h2>Contact Us</h2>
-    <ul>
-      <li>Katie jackson</li>
-      <li>++44 </li>
-      <li>address</li>
+      <li *ngIf="isUserLoginIs"><a>Log out</a></li>
     </ul>
-  </div>
-</footer>
+  </header>
+  
+ 
+  <router-outlet></router-outlet>
+  
+</div>

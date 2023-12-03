@@ -1,0 +1,12 @@
+.box{
+    width: 500px;
+    height: 300px;
+    border-style: dashed;
+    color: gray;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+:host ::ng-deep .p-accordion p-accordiontab .p-accordion-content{
+    height: 250px;
+}

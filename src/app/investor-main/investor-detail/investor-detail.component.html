@@ -1,16 +1,33 @@
-<div *ngFor = "let investor of investors">
-    <p-accordion [activeIndex]="0">
+<div style="width: 50%;margin-left: 20rem;margin-top: 5rem;">
+    <p-accordion [activeIndex]="0" [multiple]="true">
+        <div *ngFor="let investor of investors;index as i" >
         <p-accordionTab [header]="investor.firmName">
-           <div>
-            The selected Firm : {{investor.firmName}} 
-            Region - {{investor.region}}
-            Address - {{investor.address}} + {{investor.city}} + {{ investor.stateCounty}} + {{investor.zipCode}}
-            Year Est{{investor.yearEst}}
-           </div>
-               
-        </p-accordionTab>
-        </p-accordion>
+                The selected Firm : {{investor.firmName}} 
+                Region - {{investor.region}}
+                Address - {{investor.address}}  {{investor.city}}  {{ investor.stateCounty}}  {{investor.zipCode}}
+                Year Est{{investor.yearEst}}
+                <div>
+                    <select class='select-option' [(ngModel)]="investor.selectedAsset" (change)='selectionChange(investor)'>
+                        <option class='option' *ngFor='let option of assetClasses' [value]="option.item_text">{{option.item_id}}
+                        </option>
+                    </select>
+                </div>
+                <div *ngIf="investor.commitments">
+<div *ngFor="let comm of investor.commitments;index as i">
+    <span class="pi-circle-fill"></span>
+    fundId :{{comm.fundId}}
+    fundName : {{comm.fundName}}
+    fundCurrency :{{comm.fundCurrency}}
+    fundManagerName :{{comm.fundManagerName}}
+    fundType :{{comm.fundType}}
+</div>
+                </div>
+            </p-accordionTab>
+        </div>
+    </p-accordion>
 </div>
 
+   
+   
 
-
+  

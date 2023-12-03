@@ -26,7 +26,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BasicAuthInterceptor } from './helper/basic-auth.interceptor';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

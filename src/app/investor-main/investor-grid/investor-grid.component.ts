@@ -18,31 +18,51 @@ export class InvestorGridComponent {
   listPageData: any;
   totalRecords = 0;
   loading: boolean = true;
+  searchFirmName:string='';
   constructor(private http: HttpClient, private investorSerive: investorService) { }
 
   ngOnInit(): void {
-    this.investorSerive.getAll().pipe(first()).subscribe(investors => {
-      this.loading = false;
-      this.investorApiResponse = investors;
-      this.investorlist = this.investorApiResponse.data;
-      this.listPageData = this.investorApiResponse.meta;
-    });
+   this.getAllInvestorApi();
   }
 
   setMyPagination(ev: any) {
     this.loading = true;
     let pageSelected = ev.first / ev.rows;
-    let data = {
+    let pageInfo = {
       page: pageSelected + 1,
       size: ev.rows
     }
-    this.investorSerive.getFilteredList(data).pipe(first()).subscribe(investors => {
-      this.loading = false;
-      this.investorApiResponse = investors;
-      this.investorlist = this.investorApiResponse.data;
-      this.listPageData = this.investorApiResponse.meta;
+   this.getfilteredListApiCall(pageInfo);
+  }
+
+  getAllInvestorApi(){
+    this.loading = true;
+    this.investorSerive.getAll().pipe(first()).subscribe(investors => {
+      this.loadGridData(investors);
     });
   }
 
+  getfilteredListApiCall(filter:any){
+    this.investorSerive.getFilteredList(filter).pipe(first()).subscribe(investors => {
+      this.loadGridData(investors);
+     });
+  }
+
+  loadGridData(response:any){
+    this.loading = false;
+    this.investorApiResponse = response;
+    this.investorlist = this.investorApiResponse.data;
+    this.listPageData = this.investorApiResponse.meta;
+  }
+
+  onfirmSearch(){
+    this.loading = true;
+    if(this.searchFirmName){
+      let serach ={
+        firmName : this.searchFirmName
+      }
+      this.getfilteredListApiCall(serach);
+    }
+  }
 
 }

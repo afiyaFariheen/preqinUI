@@ -3,11 +3,23 @@
 
 
 <div class="grid">
+  
+  <div class="search-box">
+    <input style="width: 50%;" type="text" class="form-control" placeholder="Search Firm Name"  [(ngModel)]="searchFirmName">
+   <div style="display: flex; justify-content: space-between; width: 10%;">
+    <p-button icon="pi pi-times" [rounded]="true" class="clear" (onClick)="getAllInvestorApi()" [outlined]="true"   severity="danger "></p-button>
+    <p-button icon="pi pi-search" [rounded]="true" (onClick)="onfirmSearch()" severity="success" [outlined]="true"></p-button>
+   </div>
+
+  </div>
+
   <div *ngIf="loading" class="progressSpinner">
     <p-progressSpinner></p-progressSpinner>
   </div>
+ 
   <div class="tableGrid" *ngIf="investorlist.length > 0">
     <h1>List of Investors</h1>
+    
     <p-table
     [value]="investorlist"
     [paginator]="true"
